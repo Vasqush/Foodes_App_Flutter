@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:foodes_app/login.dart';
-import 'package:foodes_app/verification.dart';
 
-class ForgotPassword extends StatefulWidget {
-  const ForgotPassword({Key? key}) : super(key: key);
+class NoData extends StatefulWidget {
+  const NoData({Key? key}) : super(key: key);
 
   @override
-  State<ForgotPassword> createState() => _LoginState();
+  State<NoData> createState() => _LoginState();
 }
 
-class _LoginState extends State<ForgotPassword> {
+class _LoginState extends State<NoData> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,7 +39,7 @@ class _LoginState extends State<ForgotPassword> {
               keyboardType: TextInputType.emailAddress,
               decoration: InputDecoration(
                 focusedBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.grey),
+                  borderSide: BorderSide(color: Colors.red),
                 ),
                 labelText: "Email",
                 labelStyle: TextStyle(
@@ -59,7 +57,11 @@ class _LoginState extends State<ForgotPassword> {
               height: 24,
             ),
             const Text(
-                "Please provide your email to reset your password. Please don't share any data to other people."),
+              "Please provide your email to reset your password. Please don't share any data to other people.",
+              style: TextStyle(
+                color: Colors.red,
+              ),
+            ),
             const SizedBox(
               height: 24,
             ),
@@ -78,31 +80,23 @@ class _LoginState extends State<ForgotPassword> {
                     fontWeight: FontWeight.w700,
                   ),
                 ),
-                onPressed: () => Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const Verification(),
-                  ),
-                ),
+                onPressed: () {},
               ),
+            ),
+            const SizedBox(
+              height: 16,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Text("Remember now?"),
-                TextButton(
-                  child: const Text(
-                    "Login here",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
-                    ),
-                  ),
-                  onPressed: () => Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const Login(),
-                    ),
+              children: const [
+                Text("Remember now?"),
+                SizedBox(
+                  width: 5,
+                ),
+                Text(
+                  "Login here",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
               ],

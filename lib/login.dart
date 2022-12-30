@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:foodes_app/forgot_password.dart';
+import 'package:foodes_app/main_display.dart';
+import 'package:foodes_app/register.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -75,24 +78,26 @@ class _LoginState extends State<Login> {
                 ),
               ),
             ),
-            const SizedBox(
-              height: 24,
-            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
-              children: const [
-                Text(
-                  "Forget Password?",
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.w500,
-                    fontSize: 16,
+              children: [
+                TextButton(
+                  child: const Text(
+                    "Forget Password?",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 16,
+                    ),
+                  ),
+                  onPressed: () => Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ForgotPassword(),
+                    ),
                   ),
                 ),
               ],
-            ),
-            const SizedBox(
-              height: 24,
             ),
             SizedBox(
               width: double.infinity,
@@ -109,7 +114,12 @@ class _LoginState extends State<Login> {
                     fontWeight: FontWeight.w700,
                   ),
                 ),
-                onPressed: () {},
+                onPressed: () => Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const MainDisplay(),
+                  ),
+                ),
               ),
             ),
             const SizedBox(
@@ -143,20 +153,23 @@ class _LoginState extends State<Login> {
                 onPressed: () {},
               ),
             ),
-            const SizedBox(
-              height: 24,
-            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
-                Text("Don't have an account?"),
-                SizedBox(
-                  width: 5,
-                ),
-                Text(
-                  "Register",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
+              children: [
+                const Text("Don't have an account?"),
+                TextButton(
+                  child: const Text(
+                    "Register",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black
+                    ),
+                  ),
+                  onPressed: () => Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const Register(),
+                    ),
                   ),
                 ),
               ],

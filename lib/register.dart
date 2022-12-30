@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:foodes_app/login.dart';
+import 'package:foodes_app/main_display.dart';
 
 class Register extends StatefulWidget {
   const Register({Key? key}) : super(key: key);
@@ -135,7 +137,12 @@ class _LoginState extends State<Register> {
                     fontWeight: FontWeight.w700,
                   ),
                 ),
-                onPressed: () {},
+                onPressed: () => Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const MainDisplay(),
+                  ),
+                ),
               ),
             ),
             const SizedBox(
@@ -169,20 +176,23 @@ class _LoginState extends State<Register> {
                 onPressed: () {},
               ),
             ),
-            const SizedBox(
-              height: 24,
-            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
-                Text("Already have an account?"),
-                SizedBox(
-                  width: 5,
-                ),
-                Text(
-                  "Login",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
+              children: [
+                const Text("Already have an account?"),
+                TextButton(
+                  child: const Text(
+                    "Login",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black
+                    ),
+                  ),
+                  onPressed: () => Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const Login(),
+                    ),
                   ),
                 ),
               ],
